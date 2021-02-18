@@ -1,3 +1,1 @@
-print("Please Enter VPC Name: ")
-vpc = input()
-print(vpc)
+print(${params.vpc_name})
