@@ -1,1 +1,1 @@
-print(${params.vpc_name})
+print(params.vpc_name)
