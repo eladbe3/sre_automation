@@ -13,6 +13,11 @@ vpc = ec2.create_vpc(CidrBlock='172.16.0.0/16')
 vpc.create_tags(Tags=[{"Key": "Name", "Value": vpc_name}])
 vpc.wait_until_available()
 
+# enable public dns hostname so that we can SSH into it later
+ec2Client = boto3.client('ec2')
+ec2Client.modify_vpc_attribute( VpcId = vpc.id , EnableDnsSupport = { 'Value': True } )
+ec2Client.modify_vpc_attribute( VpcId = vpc.id , EnableDnsHostnames = { 'Value': True } )
+
 # create an internet gateway and attach it to VPC
 internetgateway = ec2.create_internet_gateway()
 vpc.attach_internet_gateway(InternetGatewayId=internetgateway.id)
@@ -53,7 +58,7 @@ outfile.write(KeyPairOut)
  }],
  KeyName='ec2-keypair')
 
-# Create a linux instance in the subnet OPEN_VPN SERVER CREATION 
+# Create a linux instance in the subnet OPEN_VPN SERVER Creation
  open_vpn_server_instances = ec2.create_instances(
  ImageId='ami-0de53d8956e8dcf80',
  InstanceType='t2.micro',
@@ -67,4 +72,6 @@ outfile.write(KeyPairOut)
  }],
  KeyName='ec2-keypair')
 
+# Change the mode of the file on which we stored our key pair to read-only mode 
+# This is require if you want to SSH into your Linux virtual machines in AWS. 
  chmod 400 ec2-keypair.pem
