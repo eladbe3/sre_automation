@@ -20,7 +20,7 @@ withCredentials([string(credentialsId:"aws_access_key_id", variable: 'aws_access
                         {
 
                                 sh """
-                     lz -ltrh
+                     ls -ltrh
                      aws configure set aws_access_key_id $aws_access_key_id
                      aws configure set aws_secret_access_key $aws_secret_access_key
                      aws configure set aws_default_region eu-west-1
