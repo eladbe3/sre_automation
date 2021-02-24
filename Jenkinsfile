@@ -5,11 +5,11 @@ pipeline {
     options {
         timestamps()
     }
-    parameters {
-        string(name: 'pram1', defaultValue: "", description: " address ")
-        string(name: 'param2', defaultValue: "", description: " name ")
-
-    }
+//     parameters {
+//         string(name: 'pram1', defaultValue: "", description: " address ")
+//         string(name: 'param2', defaultValue: "", description: " name ")
+//
+//     }
     stages {
         stage('create bash sh   ') {
 
@@ -25,6 +25,7 @@ withCredentials([string(credentialsId:"aws_access_key_id", variable: 'aws_access
                      aws configure set aws_secret_access_key $aws_secret_access_key
                      aws configure set aws_default_region eu-west-1
                      cd ~; ls -ltrh
+                     aws ec2 describe-instances
                     """
 
 
