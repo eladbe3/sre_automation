@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-     SERVER_CREDENTIALS = credentials('aws-account')'
+     SERVER_CREDENTIALS = credentials('aws-account')
   }
 
   stage('deploy') {
