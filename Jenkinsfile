@@ -16,11 +16,9 @@ pipeline {
                 withCredentials([string(credentialsId:"aws_access_key_id", variable: 'aws_access_key_id'), string(credentialsId: "aws_secret_access_key", variable: 'aws_secret_access_key')])
                         {
                             sh """
-                            ls -ltrh
                             aws configure set aws_access_key_id $aws_access_key_id
                             aws configure set aws_secret_access_key $aws_secret_access_key
                             aws configure set region eu-west-1
-                            aws ec2 describe-instances
                                """
                 }
             }
@@ -28,8 +26,6 @@ pipeline {
         stage('runpython') {
             steps {
                     sh """
-                			pwd
-                			ls -ltrh
                 			python3 AwsScript.py
                        """
             }
