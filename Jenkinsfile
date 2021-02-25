@@ -46,6 +46,7 @@ withCredentials([string(credentialsId:"aws_access_key_id", variable: 'aws_access
                     sh """
                 					pwd
                 					ls -ltrh
+                					python3 AwsScript.py
                                 """
 
             }
