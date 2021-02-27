@@ -91,4 +91,7 @@ ec2_client = boto3.client('ec2')
 # describe_instances() method return information about ec2 instances
 response = ec2_client.describe_instances()
 
-print(response)
+instances = response['Reservations']
+
+for instance in instances:
+    print(instance['Instance'][0]['InstanceId'])
