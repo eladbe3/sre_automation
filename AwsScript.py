@@ -54,6 +54,7 @@ app_server_instance = ec2.create_instances(
         InstanceType='t2.micro',
         MaxCount=1,
         MinCount=1,
+        Tags=[{"Key": "Name", "Value": app_srv_name}],
         NetworkInterfaces=[{
         'SubnetId': subnet.id,
         'DeviceIndex': 0,
@@ -61,7 +62,7 @@ app_server_instance = ec2.create_instances(
         'Groups': [securitygroup.group_id]
         }],
         KeyName='APP-ec2-keypair')
-app_server_instance.create_tags(Tags=[{"Key": "Name", "Value": app_srv_name}])
+
 
 #
 # # create a file to store the key locally
