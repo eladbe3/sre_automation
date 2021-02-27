@@ -3,8 +3,7 @@ import os
 
 # # Using Environment Variables From User Input
 # vpc_name = os.environ['VPC_NAME']
-# vpn_srv_name = os.environ['VPN_SRV_NAME']
-# app_srv_name = os.environ['APP_SRV_NAME']
+
 #
 # # Create new VPC & assign a name to our VPC from user input
 # ec2 = boto3.resource('ec2')
@@ -99,6 +98,8 @@ import os
 ####### Mark as comment all the Code until this line before running this section #######
 
 ec2_client = boto3.client('ec2')
+vpn_srv_name = os.environ['VPN_SRV_NAME']
+app_srv_name = os.environ['APP_SRV_NAME']
 
 #VPN Server Tag
 ec2_client.create_tags(Resources=['i-00297f964ee8ecbd9'], Tags=[{'Key':'name', 'Value':vpn_srv_name}])
