@@ -27,7 +27,7 @@ for route_table in vpc.route_tables.all():  # There should only be one route tab
         route_table.create_route(DestinationCidrBlock='0.0.0.0/0', GatewayId=internetgateway.id)
         route_table.create_tags(Tags=[{"Key": "Name", "Value": vpc_name}])
 
-# Create subnet and associate it with route table
+# Create subnet and associate it with the new route table that automatically created with new VPC
 subnet = ec2.create_subnet(CidrBlock='10.1.1.0/24', VpcId=vpc.id)
 subnet.create_tags(Tags=[{"Key": "Name", "Value": vpc_name}])
 for route_table in vpc.route_tables.all():
@@ -38,13 +38,13 @@ securitygroup = ec2.create_security_group(GroupName='BlueVine-SSH-ONLY', Descrip
 securitygroup.authorize_ingress(CidrIp='0.0.0.0/0', IpProtocol='tcp', FromPort=22, ToPort=22)
 securitygroup.create_tags(Tags=[{"Key": "Name", "Value": vpc_name}])
 
-# create a file to store the key locally
+# Create a file to store the key locally
 outfile_app = open('APP-ec2-keypair.pem', 'w')
 
-# call the boto ec2 function to create a key pair
+# Call the boto ec2 function to create a key pair
 key_pair_app = ec2.create_key_pair(KeyName='APP-ec2-keypair')
 
-# capture the key and store it in a file
+# Capture the key and store it in a file
 KeyPairOut_app = str(key_pair_app.key_material)
 outfile_app.write(KeyPairOut_app)
 
@@ -54,17 +54,17 @@ app_server_instance = ec2.create_instances(
         InstanceType='t2.micro',
         MaxCount=1,
         MinCount=1,
-        Tags=[{"Key": "Name", "Value": app_srv_name}],
         NetworkInterfaces=[{
         'SubnetId': subnet.id,
         'DeviceIndex': 0,
         'AssociatePublicIpAddress': True,
         'Groups': [securitygroup.group_id]
         }],
-        KeyName='APP-ec2-keypair')
+        KeyName='APP-ec2-keypair'
+        TagSpecifications=[{'ResourceType': 'instance',
+                                'Tags': [app_srv_name]}])
 
 
-#
 # # create a file to store the key locally
 # outfile_vpn = open('VPN-ec2-keypair.pem', 'w')
 #
