@@ -98,5 +98,9 @@ import os
 ####### Phase 2 - After instances were created, we can create Instance Tags #######
 ####### Mark as comment all the Code until this line before running this section #######
 
+ec2_client = boto3.client('ec2')
+
 #VPN Server Tag
-ec2.create_tags(Resources=['i-00297f964ee8ecbd9'], Tags=[{'Key':'name', 'Value':vpn_srv_name}])
+ec2_client.create_tags(Resources=['i-00297f964ee8ecbd9'], Tags=[{'Key':'name', 'Value':vpn_srv_name}])
+#APP Server Tag
+ec2_client.create_tags(Resources=['i-0e61c955cd11bdca2'], Tags=[{'Key':'name', 'Value':app_srv_name}])
