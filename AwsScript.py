@@ -99,7 +99,7 @@ ec2_client = boto3.client('ec2')
 response = ec2_client.describe_instances()
 
 # Creating new List of Instance Ids for all running instances
-instances = response['GroupName']
+instances = response['Groups']
 print(instances)
 # instance_ids = []
 # for i in instances:
