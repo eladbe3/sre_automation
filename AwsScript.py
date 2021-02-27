@@ -102,7 +102,7 @@ response = ec2_client.describe_instances()
 instances = response['Reservations']
 instance_ids = []
 for i in instances:
-     if instances['GroupName'] == 'vpn_srv_sg':
+     if instances['SecurityGroups'] == 'vpn_srv_sg':
         print(instance['Instances'][i]['InstanceId'])
 #         instance_ids.append(instance['Instances'][0]['InstanceId'])
 
