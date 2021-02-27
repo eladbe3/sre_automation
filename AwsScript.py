@@ -101,9 +101,9 @@ response = ec2_client.describe_instances()
 # Creating new List of Instance Ids for all running instances
 instances = response['Reservations']
 instance_ids = []
-for i in instances:
-     if response['SecurityGroups'] == 'vpn_srv_sg':
-        print(instance['Instances'][i]['InstanceId'])
+for instance in instances:
+     if response['GroupName'] == 'vpn_srv_sg':
+        print(instance['Instances'][0]['InstanceId'])
 #         instance_ids.append(instance['Instances'][0]['InstanceId'])
 
 # tag_creation = ec2.client.create_tags(
