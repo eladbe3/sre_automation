@@ -6,7 +6,7 @@ pipeline {
         timestamps()
     }
     parameters {
-        VPC_NAME: string(name: 'VPC_NAME', defaultValue: "", description: "VPC_NAME")
+           string(name: 'VPC_NAME', defaultValue: "", description: "VPC_NAME")
 //         string(name: 'VPN_SRV_Name', defaultValue: "", description: "VPN_SRV_Name")
 //         string(name: 'APP_SRV_Name', defaultValue: "", description: "APP_SRV_Name")
     }
