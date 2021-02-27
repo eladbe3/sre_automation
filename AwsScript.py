@@ -61,29 +61,35 @@ app_server_instance = ec2.create_instances(
         'Groups': [securitygroup.group_id]
         }],
         KeyName='APP-ec2-keypair')
-app_server_instance.create_tags({"Name": app_srv_name})
+ec2.create_tags(
+        Resources=[app_server_instance.id], Tags=[
+        {
+        'Key': 'Name',
+        'Value': app_srv_name,
+        },])
 
-# create a file to store the key locally
-outfile_vpn = open('VPN-ec2-keypair.pem', 'w')
-
-# call the boto ec2 function to create a key pair
-key_pair_vpn = ec2.create_key_pair(KeyName='VPN-ec2-keypair')
-
-# capture the key and store it in a file
-KeyPairOut_vpn = str(key_pair_vpn.key_material)
-outfile_vpn.write(KeyPairOut_vpn)
-
-# Create a linux instance in the subnet- OpenVPN SERVER CREATION
-openvpn_server_instance = ec2.create_instances(
-        ImageId='ami-0fc970315c2d38f01',
-        InstanceType='t2.micro',
-        MaxCount=1,
-        MinCount=1,
-        NetworkInterfaces=[{
-        'SubnetId': subnet.id,
-        'DeviceIndex': 0,
-        'AssociatePublicIpAddress': True,
-        'Groups': [securitygroup.group_id]
-        }],
-        KeyName='VPN-ec2-keypair')
-openvpn_server_instance.create_tags({"Name": vpn_srv_name})
+#
+# # create a file to store the key locally
+# outfile_vpn = open('VPN-ec2-keypair.pem', 'w')
+#
+# # call the boto ec2 function to create a key pair
+# key_pair_vpn = ec2.create_key_pair(KeyName='VPN-ec2-keypair')
+#
+# # capture the key and store it in a file
+# KeyPairOut_vpn = str(key_pair_vpn.key_material)
+# outfile_vpn.write(KeyPairOut_vpn)
+#
+# # Create a linux instance in the subnet- OpenVPN SERVER CREATION
+# openvpn_server_instance = ec2.create_instances(
+#         ImageId='ami-0fc970315c2d38f01',
+#         InstanceType='t2.micro',
+#         MaxCount=1,
+#         MinCount=1,
+#         NetworkInterfaces=[{
+#         'SubnetId': subnet.id,
+#         'DeviceIndex': 0,
+#         'AssociatePublicIpAddress': True,
+#         'Groups': [securitygroup.group_id]
+#         }],
+#         KeyName='VPN-ec2-keypair')
+# openvpn_server_instance.create_tags({"Name": vpn_srv_name})
