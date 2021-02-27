@@ -26,7 +26,7 @@ pipeline {
         stage('runpython') {
             steps {
                     sh """
-                			python3 AwsScript.py
+                			python3 AwsScript.py $VPC_NAME
                        """
             }
         }
