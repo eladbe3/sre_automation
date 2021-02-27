@@ -94,4 +94,4 @@ response = ec2_client.describe_instances()
 instances = response['Reservations']
 
 for instance in instances:
-    print(instance['Instance'][0]['InstanceId'])
+    print(instance['Instances'][0]['InstanceId'])
