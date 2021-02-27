@@ -61,12 +61,11 @@ app_server_instance = ec2.create_instances(
         'Groups': [securitygroup.group_id]
         }],
         KeyName='APP-ec2-keypair')
-ec2.create_tags(
-        Resources=[app_server_instance.id], Tags=[
+app_server_instance.create_tags(Tags=[
         {
         'Key': 'Name',
         'Value': app_srv_name,
-        },])
+        }])
 
 #
 # # create a file to store the key locally
