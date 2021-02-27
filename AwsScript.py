@@ -73,7 +73,7 @@ key_pair_vpn = ec2.create_key_pair(KeyName='VPN-ec2-keypair')
 KeyPairOut_vpn = str(key_pair_vpn.key_material)
 outfile_vpn.write(KeyPairOut_vpn)
 
-Create a linux instance in the subnet- OpenVPN SERVER CREATION
+# Create a linux instance in the subnet- OpenVPN SERVER CREATION
 openvpn_server_instance = ec2.create_instances(
         ImageId='ami-0fc970315c2d38f01',
         InstanceType='t2.micro',
