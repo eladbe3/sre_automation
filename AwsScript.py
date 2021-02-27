@@ -88,10 +88,13 @@ import os
 
 ec2_client = boto3.client('ec2')
 
-# describe_instances() method return information about ec2 instances
+# describe_instances() method return information about all of ec2 instances
 response = ec2_client.describe_instances()
 
+# Creating new List of Instance Ids for all running instances
 instances = response['Reservations']
-
+instance_ids = []
 for instance in instances:
-    print(instance['Instances'][0]['InstanceId'])
+    instance_ids.append(instance['Instances'][0]['InstanceId'])
+
+print(instance_ids)
