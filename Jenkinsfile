@@ -5,11 +5,11 @@ pipeline {
     options {
         timestamps()
     }
-//     parameters {
-//         string(name: 'pram1', defaultValue: "", description: "VPC_NAME")
-//         string(name: 'param2', defaultValue: "", description: "OpenVPN_Sever_Name")
-//         string(name: 'param3', defaultValue: "", description: "APP_Sever_Name")
-//     }
+    parameters {
+        string(name: 'VPC_NAME', defaultValue: "", description: "VPC_NAME")
+        string(name: 'VPN_SRV_Name', defaultValue: "", description: "VPN_SRV_Name")
+        string(name: 'APP_SRV_Name', defaultValue: "", description: "APP_SRV_Name")
+    }
     stages {
         stage('authentication') {
             steps {
