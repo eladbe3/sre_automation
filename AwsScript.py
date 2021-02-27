@@ -1,7 +1,7 @@
 import boto3
 import os
 
-vpc_name = os.environ['VPC_NAME']
+vpc_name = os.environ[VPC_NAME]
 
 # Create new VPC & Assign a name to our VPC
 ec2 = boto3.resource('ec2')
