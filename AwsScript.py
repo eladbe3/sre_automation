@@ -3,8 +3,8 @@ import os
 
 # Using Environment Variables From User Input
 vpc_name = os.environ['VPC_NAME']
-# vpn_srv_name = os.environ['VPN_SRV_NAME']
-# app_srv_name = os.environ['APP_SRV_NAME']
+vpn_srv_name = os.environ['VPN_SRV_NAME']
+app_srv_name = os.environ['APP_SRV_NAME']
 
 # Create new VPC & assign a name to our VPC from user input
 ec2 = boto3.resource('ec2')
