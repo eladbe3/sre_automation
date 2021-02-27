@@ -93,24 +93,10 @@ import os
 #         }],
 #         KeyName='APP-ec2-keypair')
 
-ec2_client = boto3.client('ec2')
 
-# describe_instances() method return information about all of ec2 instances
-response = ec2_client.describe_instances()
 
-# Creating new List of Instance Ids for all running instances
-instances = response['Reservations']
-instance_ids = []
-for instance in instances:
-     if response['GroupName'] == 'vpn_srv_sg':
-        print(instance['Instances'][0]['InstanceId'])
-#         instance_ids.append(instance['Instances'][0]['InstanceId'])
+####### Phase 2 - After instances were created, we can create Instance Tags #######
+####### Mark as comment all the Code until this line before running this section #######
 
-# tag_creation = ec2.client.create_tags(
-#     Resources = instance_ids,
-#     Tags = [
-#         {
-#             ‘group-name’
-#         }
-#     ]
-# )
+#VPN Server Tag
+ec2.create_tags(Resources=['i-00297f964ee8ecbd9'], Tags=[{'Key':'name', 'Value':vpn_srv_name}])
