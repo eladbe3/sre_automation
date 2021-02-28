@@ -76,7 +76,7 @@ I've Opened on my Workstation SecurityGroup, an inbound rule allowing port 8080.
 
 ## Automation With Jenkins
 
-I've Connected with chrome explorer to work station public ip address port 8080
+I've Connected with chrome explorer to the work station public ip address port 8080
 
 In my first login, I've to provide the Jenkins app a password, which I can find it on my WS with the command:
 ```bash
