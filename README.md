@@ -95,7 +95,7 @@ pip3 install --upgrade awscli
 
 **I've created new GitHub account and a new repository called "sre_automation".**
 
-There I've added 2 files:\
+There I've added 2 files:
 * Jenkinsfile - need to write a Declerative pipeline script.\
 * AwsScript.py - Already written and tested.\
 
@@ -152,4 +152,6 @@ for that I've created 2 new secret text credentials:**
         Authentication - Using the AWS Credentials (Keys) We've created before, we are configuring them on the build with environment variables.
         Run Python- Running our python script, with the parameters we've recieved from the user (Please be aware, there are 2 Phases for the Script, Phase 2 is for creating Instance Tags).
 
-##Thank you BlueVine Team, for the learning experience.
+
+
+## Thank you BlueVine Team, for the learning experience.
