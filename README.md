@@ -154,4 +154,4 @@ for that I've created 2 new secret text credentials:**
 
 
 
-## Thank you BlueVine Team, for the learning experience.
+## Thank you for the learning experience.
