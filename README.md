@@ -107,7 +107,7 @@ Configure the Job pipeline, to "script from SCM" (Source Code Managment)
 
 --> SCM: Git
 Repository URL: https://github.com/eladbe3/sre_automation.git \
-Brunch: */main
+Brunch: */main \
 Script Path: Jenkinsfile
 
 **I've Created new Credentials for Jenkins to communicate with the Slave machine over SSH**
