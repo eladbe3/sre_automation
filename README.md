@@ -96,8 +96,8 @@ pip3 install --upgrade awscli
 **I've created new GitHub account and a new repository called "sre_automation".**
 
 There I've added 2 files:
-* Jenkinsfile - need to write a Declerative pipeline script.\
-* AwsScript.py - Already written and tested.\
+* Jenkinsfile - need to write a Declerative pipeline script.
+* AwsScript.py - Already written and tested.
 
 I am working with Intellij IDEA - I've sync it with my GitHub repo (push new commits etc.)
 
