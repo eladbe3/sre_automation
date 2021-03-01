@@ -99,11 +99,11 @@ app_server_instance = ec2.create_instances(
 ####### Phase 2 - After instances were created, we can create Instance Tags #######
 ############# Mark as comment all the Code on Phase 1 before running this section #############
 
-ec2_client = boto3.client('ec2')
-vpn_srv_name = os.environ['VPN_SRV_NAME']
-app_srv_name = os.environ['APP_SRV_NAME']
-
-#VPN Server Tag
-ec2_client.create_tags(Resources=['i-00297f964ee8ecbd9'], Tags=[{'Key':'name', 'Value':vpn_srv_name}])
-#APP Server Tag
-ec2_client.create_tags(Resources=['i-0e61c955cd11bdca2'], Tags=[{'Key':'name', 'Value':app_srv_name}])
+# ec2_client = boto3.client('ec2')
+# vpn_srv_name = os.environ['VPN_SRV_NAME']
+# app_srv_name = os.environ['APP_SRV_NAME']
+#
+# #VPN Server Tag
+# ec2_client.create_tags(Resources=['i-00297f964ee8ecbd9'], Tags=[{'Key':'name', 'Value':vpn_srv_name}])
+# #APP Server Tag
+# ec2_client.create_tags(Resources=['i-0e61c955cd11bdca2'], Tags=[{'Key':'name', 'Value':app_srv_name}])
