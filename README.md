@@ -21,7 +21,7 @@ Here I will describe my thought process, step by step, from the beginning to the
     
     Name: jenkins-master-role
     Role: AWS services- EC2
-    Policies: AmazonEC2FullAccess
+    Policy: AmazonEC2FullAccess
 
 **Created new IAM user on AWS Console, called JenkinsUser,'Programmatic Access' accsess type**
 
