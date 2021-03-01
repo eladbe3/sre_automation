@@ -23,12 +23,15 @@ Here I will describe my thought process, step by step, from the beginning to the
     
     Name: jenkins-master-role
     Role: AWS services- EC2
-    Policies: AdministratorAccess
+    Policies: AmazonEC2FullAccess
 
 **Created new IAM user on AWS Console, called JenkinsUser,'Programmatic Access' accsess type**
 
     User: JenkinsUser
     Keys sent by mail.
+    Policies: 
+    AmazonEC2FullAccess
+    AmazonVPCFullAccess
 
 ## Accomplish the mission with Python Script using Boto3
 
