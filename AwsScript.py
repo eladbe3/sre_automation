@@ -9,7 +9,7 @@ vpc_name = os.environ['VPC_NAME']
 
 # Create new VPC & assign a name to our VPC from user input
 ec2 = boto3.resource('ec2')
-vpc = ec2.create_vpc(CidrBlock='10.1.0.0/16')
+vpc = ec2.create_vpc(CidrBlock='10.1.0.0/24')
 vpc.create_tags(Tags=[{"Key": "Name", "Value": vpc_name}])
 vpc.wait_until_available()
 
@@ -29,7 +29,7 @@ for route_table in vpc.route_tables.all():  # There should only be one route tab
         route_table.create_tags(Tags=[{"Key": "Name", "Value": vpc_name}])
 
 # Create subnet and associate it with the new route table
-subnet = ec2.create_subnet(CidrBlock='10.1.1.0/24', VpcId=vpc.id)
+subnet = ec2.create_subnet(CidrBlock='10.1.1.0/29', VpcId=vpc.id)
 subnet.create_tags(Tags=[{"Key": "Name", "Value": vpc_name}])
 for route_table in vpc.route_tables.all():
         route_table.associate_with_subnet(SubnetId=subnet.id)
