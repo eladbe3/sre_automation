@@ -8,14 +8,12 @@ Here I will describe my thought process, step by step, from the beginning to the
 
     UserName: ReadOnlyEc2User
     Password: ***********
-	Login URL: https://073875213206.signin.aws.amazon.com/console
 	Policy: AmazonEC2ReadOnlyAccess
 	Tag: ReadOnlyEc2
 **Created Another IAM user on AWS Console:**
 
     UserName: ReadOnlyUser
 	Password: ***********
-	Login URL: https://073875213206.signin.aws.amazon.com/console
 	Policy: ReadOnlyAccess
 	Tag: ReadOnlyAccessUser
 
@@ -28,7 +26,6 @@ Here I will describe my thought process, step by step, from the beginning to the
 **Created new IAM user on AWS Console, called JenkinsUser,'Programmatic Access' accsess type**
 
     User: JenkinsUser
-    Keys sent by mail.
     Policies: 
     AmazonEC2FullAccess
     AmazonVPCFullAccess
