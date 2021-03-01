@@ -9,7 +9,7 @@ vpc_name = os.environ['VPC_NAME']
 
 # Create new VPC & assign a name to our VPC from user input
 ec2 = boto3.resource('ec2')
-vpc = ec2.create_vpc(CidrBlock='10.1.0.0/24')
+vpc = ec2.create_vpc(CidrBlock='10.1.1.0/24')
 vpc.create_tags(Tags=[{"Key": "Name", "Value": vpc_name}])
 vpc.wait_until_available()
 
