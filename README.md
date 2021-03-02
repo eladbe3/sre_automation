@@ -17,12 +17,6 @@ Here I will describe my thought process, step by step, from the beginning to the
 	Policy: ReadOnlyAccess
 	Tag: ReadOnlyAccessUser
 
-**Created new IAM ROLE on AWS Console:**
-    
-    Name: jenkins-master-role
-    Role: AWS services- EC2
-    Policy: AmazonEC2FullAccess
-
 **Created new IAM user on AWS Console, called JenkinsUser,'Programmatic Access' accsess type**
 
     User: JenkinsUser
@@ -39,7 +33,7 @@ In order to work only with linux OS, I've created new EC2 Ubuntu(20.04) (ami-022
 **Dependencies**
 
 ```bash
-sudo apt-get install python3-pip
+sudo apt-get install python3-pip3
 pip3 install boto3
 pip3 install awscli
 ```
