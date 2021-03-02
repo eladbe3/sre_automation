@@ -57,11 +57,12 @@ sudo add-apt-repository \
                  stable"
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
-sudo mkdir /opt/jenkins
+
 ```
 **Running new Jenkins container:**
 
 ```bash
+sudo mkdir /opt/jenkins
 cd /opt
 chmod 777 jenkins/
 docker run -d  --name jenkins  -p 8080:8080 -p 50000:50000 -v /opt/jenkins:/var/jenkins_home jenkins/jenkins:lts
