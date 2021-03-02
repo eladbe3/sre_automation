@@ -104,6 +104,6 @@ vpn_srv_name = os.environ['VPN_SRV_NAME']
 app_srv_name = os.environ['APP_SRV_NAME']
 
 #VPN Server Tag
-ec2_client.create_tags(Resources=['i-00297f964ee8ecbd9'], Tags=[{'Key':'name', 'Value':vpn_srv_name}])
+ec2_client.create_tags(Resources=['i-066f9b75833e40672'], Tags=[{'Key':'name', 'Value':vpn_srv_name}])
 #APP Server Tag
-ec2_client.create_tags(Resources=['i-0e61c955cd11bdca2'], Tags=[{'Key':'name', 'Value':app_srv_name}])
+ec2_client.create_tags(Resources=['i-077e291e66f1c72b0'], Tags=[{'Key':'name', 'Value':app_srv_name}])
